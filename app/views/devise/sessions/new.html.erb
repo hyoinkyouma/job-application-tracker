@@ -4,7 +4,7 @@
 <div class = "flex flex-col w-fit h-fit items-center align-center border-solid border-1 border-black p-10 rounded-lg bg-gray-900">
 <h2 class="text-4xl text-white" >Log in</h2>
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="mt-3 h-[8vh]">
+  <div class="mt-7 h-[8vh]">
     <%= f.email_field :email, autofocus: true, autocomplete: "email", :class => "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", :placeholder => "email@domain.com" %>
   </div>
   <div class="field mb-6">
