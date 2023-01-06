@@ -10,10 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_12_123439) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_06_130309) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "timescaledb"
+
+  create_table "events", force: :cascade do |t|
+    t.string "title"
+    t.datetime "date_of_event"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "jobs_id", null: false
+    t.index ["jobs_id"], name: "index_events_on_jobs_id"
+  end
+
+  create_table "jobs", force: :cascade do |t|
+    t.string "job_title", null: false
+    t.text "job_description"
+    t.decimal "salary", precision: 9, scale: 2
+    t.integer "status"
+    t.boolean "accepted"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "users_id", null: false
+    t.index ["users_id"], name: "index_jobs_on_users_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -29,4 +51,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_12_123439) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "events", "jobs", column: "jobs_id"
+  add_foreign_key "jobs", "users", column: "users_id"
 end
