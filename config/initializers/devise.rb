@@ -297,7 +297,6 @@ Devise.setup do |config|
   # config.omniauth_path_prefix = '/my_engine/users/auth'
   config.omniauth :google_oauth2,"825423615307-5vo3oht109511gq4qsoa7iftt5hfoqcj.apps.googleusercontent.com", "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", callback_path: '/users/auth/google_oauth2/callbacks', access_type: 'online', scope: 'email,profile,calendar'
 
-
   # ==> Turbolinks configuration
   # If your app is using Turbolinks, Turbolinks::Controller needs to be included to make redirection work correctly:
   #
