@@ -1,9 +1,10 @@
-class MainPageController < ApplicationControlle
+class MainPageController < ApplicationController
 
     def index
         @jobs = current_user.jobs
-        @events = current_user.events
+        
+        @events = []
+    
     end
-
 
 end
