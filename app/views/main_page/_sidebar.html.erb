@@ -1,4 +1,4 @@
-<% @jobs.each do |jobs| %>
+
    <aside class="w-full h-screen" aria-label="Sidebar">
       <div class="w-full h-full px-3 py-4 overflow-y-auto rounded bg-gray-50 dark:bg-gray-800">
          <a href="#" class="flex items-center pl-2.5 mb-5">
@@ -11,21 +11,20 @@
                </a>
             </li>
             <li>
-                  <span class="flex-1 ml-3 whitespace-nowrap">Job title: <%=jobs.job_title%></span>
+                  <span class="flex-1 ml-3 whitespace-nowrap">Job title:</span>
             </li>
             <li>
-                  <span class="flex-1 ml-3 whitespace-nowrap">Job Description: <%=jobs.job_description%></span>
+                  <span class="flex-1 ml-3 whitespace-nowrap">Job Description:</span>
             </li>
             <li>
-                  <span class="flex-1 ml-3 whitespace-nowrap">Salary: <%=jobs.job_salary%></span>
+                  <span class="flex-1 ml-3 whitespace-nowrap">Salary:</span>
             </li>
             <li>
-                  <span class="flex-1 ml-3 whitespace-nowrap">Status: <%=jobs.job_status%></span>
+                  <span class="flex-1 ml-3 whitespace-nowrap">Status:</span>
             </li>
             <li>
-                  <span class="flex-1 ml-3 whitespace-nowrap">Accepted: <%=jobs.job_accepted%></span>
+                  <span class="flex-1 ml-3 whitespace-nowrap">Accepted:</span>
             </li>
          </ul>
       </div>
    </aside>
-<% end %>
