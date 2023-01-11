@@ -1,39 +1,42 @@
+
+
 <div class="flex flex-col w-screen items-center gap-0 h-[85vh] align-center justify-center">
-  <div class = "flex flex-col w-fit h-fit items-center align-center border-solid border-1 border-black p-10 rounded-lg bg-gray-900">
-    <h2 class="text-4xl text-white" >Log in</h2>
-    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <div class="mt-7 h-[8vh]">
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", :class => "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", :placeholder => "email@domain.com" %>
-      </div>
-      <div class="field mb-6">
-        <%= f.password_field :password, autocomplete: "current-password", :class => "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", :placeholder => "Password" %>
-      </div>
-      <div class="flex items-center mb-6">
-        <% if devise_mapping.rememberable? %>
-          <div class="flex items-center h-5">
-            <%= f.check_box :remember_me, :class => "w-4 h-4 bg-gray-50 rounded border border-gray-300 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800" %>
-          </div>
-          <%= f.label :remember_me, :class => "ml-2 text-sm font-medium text-white" %>
-        <% end %>
-      </div>
-      <div class="actions w-full flex items-center justify-center gap-2">
-        <%=link_to "Sign Up", new_user_registration_path, :class => "text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-blue-800"%>
-        <%= f.submit "Log in", :class => "text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"%>
-      </div>
-    <% end %>
-    <div class="actions w-full flex flex-col justify-center items-center gap-1 mt-3">
-      <%= button_to "/users/auth/google_oauth2", method: :post, data: {turbo: "false"} do %>
-        <div class=" flex gap-2 items-center w-[20vw] justify-center align-center bg-transparent hover:bg-blue-500 text-white font-semibold hover:text-slate-200 py-2 px-4 border border-blue-500 hover:border-transparent rounde">
-          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#FFFFFF" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"></rect><path d="M128,128h88a88.1,88.1,0,1,1-25.8-62.2" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></path></svg>
-          <span>Login with Google</span>
-        </div>
-      <%end%>
-      <%= link_to "https://romanaugusto.tk" do %>
-        <div class=" flex gap-2 items-center w-[20vw] justify-center align-center bg-transparent hover:bg-blue-500 text-white font-semibold hover:text-slate-200 py-2 px-4 border border-blue-500 hover:border-transparent rounde">
-          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#FFFFFF" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"></rect><rect x="36" y="36" width="184" height="184" rx="8" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></rect><line x1="120" y1="112" x2="120" y2="176" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line><line x1="88" y1="112" x2="88" y2="176" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line><path d="M120,140a28,28,0,0,1,56,0v36" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></path><circle cx="88" cy="80" r="12"></circle></svg>
-          <span>Login with LinkedIn</span>
-        </div>
-      <%end%>
-    </div>
+<div class = "flex flex-col w-fit h-fit items-center align-center border-solid border-1 border-black p-10 rounded-lg bg-gray-900">
+<h2 class="text-4xl text-white" >Log in</h2>
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="mt-7 h-[8vh]">
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", :class => "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", :placeholder => "email@domain.com" %>
   </div>
+  <div class="field mb-6">
+    <%= f.password_field :password, autocomplete: "current-password", :class => "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", :placeholder => "Password" %>
+  </div>
+  <div class="flex items-start mb-6">
+  <% if devise_mapping.rememberable? %>
+    <div class="flex items-center h-5">
+      <%= f.check_box :remember_me, :class => "w-4 h-4 bg-gray-50 rounded border border-gray-300 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800" %>
+    </div>
+      <%= f.label :remember_me, :class => "ml-2 text-sm font-medium text-white" %>
+  <% end %>
+  </div>
+
+  <div class="actions w-full flex items-center justify-center gap-2">
+    <%=link_to "Sign Up", new_user_registration_path, :class => "text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"%>
+    <%= f.submit "Log in", :class => "text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"%>
+  </div>
+<% end %>
+ <div class="actions w-full flex flex-col justify-center items-center gap-1 mt-3">
+    <%= button_to "/users/auth/google_oauth2", method: :post, data: {turbo: "false"} do %>
+      <div class=" flex gap-2 items-center w-[20vw] justify-center align-center bg-transparent hover:bg-blue-500 text-white font-semibold hover:text-slate-200 py-2 px-4 border border-blue-500 hover:border-transparent rounde">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#FFFFFF" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"></rect><path d="M128,128h88a88.1,88.1,0,1,1-25.8-62.2" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></path></svg>
+        <span>Login with Google</span>
+      </div>
+    <%end%>
+    <%= link_to "https://romanaugusto.tk" do %>
+      <div class=" flex gap-2 items-center w-[20vw] justify-center align-center bg-transparent hover:bg-blue-500 text-white font-semibold hover:text-slate-200 py-2 px-4 border border-blue-500 hover:border-transparent rounde">
+       <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#FFFFFF" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"></rect><rect x="36" y="36" width="184" height="184" rx="8" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></rect><line x1="120" y1="112" x2="120" y2="176" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line><line x1="88" y1="112" x2="88" y2="176" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line><path d="M120,140a28,28,0,0,1,56,0v36" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></path><circle cx="88" cy="80" r="12"></circle></svg>
+        <span>Login with LinkedIn</span>
+      </div>
+    <%end%>
+  </div>
+</div>
 </div>
