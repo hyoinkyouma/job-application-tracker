@@ -1,5 +1,5 @@
 
-   <aside class="w-full max-h-[90vh]" aria-label="Sidebar">
+   <aside class="w-full max-h-[90vh] min-h-[90vh]" aria-label="Sidebar">
       <div class="w-full h-full px-3 py-4 rounded bg-gray-50 dark:bg-gray-800">
          <a href="#" class="flex items-center pl-2.5 mb-5">
             <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white"><%= current_user.name %></span>
@@ -44,7 +44,9 @@
             
             <div class="flex items-center gap-1 justify-center h-fit w-fit p-2 text-red-500">
                <span>Rejected</span>
+               <div class="loading-anim-shake">
                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#ff2600" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"></rect><line x1="200" y1="56" x2="56" y2="200" stroke="#ff2600" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line><line x1="200" y1="200" x2="56" y2="56" stroke="#ff2600" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line></svg>
+               </div>
             <span>:
             <%= trackers[:rejected]%>
             </span>

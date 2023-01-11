@@ -1,0 +1,6 @@
+<%= form_for :anything, url: "/search", data: { turbo: false } do |form| %>
+  <%= form.text_field :keyword %>
+  <%= form.text_field :location %>
+  <%= form.text_field :isRemote %>
+  <%= form.submit  %>
+<% end  %>
