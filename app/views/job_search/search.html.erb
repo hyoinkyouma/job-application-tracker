@@ -1,0 +1,5 @@
+<ul>
+    <% @result.each do |it| %>
+        <a href="<%= it['applyMethod']['companyApplyUrl']%>"><%= it['title'] %></a>
+    <%end%>
+</ul>
