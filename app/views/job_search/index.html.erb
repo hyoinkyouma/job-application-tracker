@@ -1,6 +1,8 @@
-<%= form_for :anything, url: "/search", data: { turbo: false } do |form| %>
-  <%= form.text_field :keyword %>
-  <%= form.text_field :location %>
-  <%= form.text_field :isRemote %>
-  <%= form.submit  %>
-<% end  %>
+<div class = "main flex flex-row w-screen">
+    <div class="w-[80%]">
+        <%= render "job_search/form" %>
+    </div>
+    <div class="w-[20%] flex justify-end">
+        <%= render "main_page/sidebar", jobs: @jobs, trackers: @trackers %>
+    </div>
+</div>
