@@ -1,0 +1,18 @@
+ <%= form_for :anything, url: "/search", class: "flex flex-col items-center justify-center h-full",data: { turbo: false } do |form| %>
+    <h1 class="text-4xl text-white">Job Search on Linkedin</h1>
+    <div class="w-[80%] mt-5 flex items-center justify-center">
+    <%= form.text_field :keyword, class:"w-[70%]", placeholder:"Software Engineer" %>
+    <%= form.text_field :location, class:"w-[30%]", placeholder:"Manila" %>
+    </div>
+    <div class="w-[80%] flex mt-3 flex-row items-center justify-end gap-2">
+     <div class="mx-2">
+        <%= form.submit "Search", class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"  %>
+    </div>
+    <div class="text-white p-2">
+    <%= label_tag 'Remote?' %>
+    <%= form.check_box :isRemote %>
+    </div>
+ 
+    </div>
+
+<% end  %>
