@@ -41,7 +41,6 @@ class JobSearchController < ApplicationController
         @job.salary = params[:details][:salary]
         @job.status = params[:details][:status]
         @job.accepted = params[:details][:accepted]
-
         redirect_to job_show_path(id:params[:id])
     end
 
