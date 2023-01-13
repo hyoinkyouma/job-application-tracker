@@ -7,7 +7,7 @@
          <ul class="space-y-2 text-white overflow-y-scroll h-[60%]">
          <% jobs.each do |job|%>
             <li>
-              <%= link_to edit_job_path(job), class: "block max-w-sm p-6  border rounded-lg shadow-md  bg-gray-900 border-gray-700 hover:bg-gray-700" do %>
+              <%= link_to edit_job_path(job), class: "block w-full p-6  border rounded-lg shadow-md  bg-gray-900 border-gray-700 hover:bg-gray-700" do %>
                   <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"><%=job.job_title%></h5>
                   <p class="font-normal text-gray-700 dark:text-gray-400"><%= job.job_description %></p>
                   <p class="font-normal text-gray-700 dark:text-gray-400">PHP<%= job.salary %>0</p>

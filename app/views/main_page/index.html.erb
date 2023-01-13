@@ -1,7 +1,8 @@
 <div class = "main flex w-screen">
-    <div class="w-[80%]">
+    <div class="w-[60%]">
+         <%= render "main_page/events", events: @events %>
     </div>
-      <div class="w-[20%] flex justify-end">
+      <div class="w-[40%] flex justify-end">
          <%= render "main_page/sidebar", jobs: @jobs, trackers: @trackers %>
     </div>
 </div>
