@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  resources :events
+  
   get "/search", to: "job_search#index"
   post "/search", to: "job_search#search"
   post "/save_job", to: "job_search#newJob", as: "save_job"

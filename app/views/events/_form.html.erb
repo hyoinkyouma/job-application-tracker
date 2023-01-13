@@ -1,0 +1,21 @@
+<%= form_for event, class:"flex flex-col text-white items-center justify-center p-5 md:w-[50%] w-[80%] h-full" do |f|%>
+    <h1 class="text-4xl text-white text-center text-bold">Set an Interview</h1>
+    <hr class="my-5 w-full">
+    <div class="text-white">
+    <%= label_tag "Notes: " %>
+    <%= f.text_field :description, class: "text-white bg-slate-600 w-full" %>
+    </div>
+    
+    <div class="text-white">
+    <%= label_tag "Date of Interview: "%>
+    <%= f.datetime_local_field :date_of_event, min: Date.today, class: "text-white bg-slate-600 w-full"%>
+    </div>
+    <div class="text-white">
+        <%= label_tag "Job Posting: "%>
+        <% options = options_from_collection_for_select(jobs, 'id', 'job_title') %>
+        <%= f.select :job_id, options, {}, {class: "text-white bg-slate-600 w-full"} %>
+    </div>
+    <div class="w-full mt-3 flex items-center justify-center">
+    <%= f.submit class:"py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"%>
+    </div>
+<% end %>
