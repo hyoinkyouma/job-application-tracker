@@ -1,6 +1,6 @@
 class JobSearchController < ApplicationController
     def index
-                @jobs = current_user.jobs
+        @jobs = current_user.jobs
         job_tally = @jobs.size
         job_inprogress = 0
         job_accepted = 0
@@ -24,6 +24,41 @@ class JobSearchController < ApplicationController
             accepted: job_accepted,
             rejected: job_rejected
         }
+
+    end
+
+    def show
+        @job = Job.find(params[:id])
+    end
+
+    def edit
+        @job = Job.find(params[:id])
+    end
+
+    def update
+        @job = Job.find(params[:id])
+        @job.job_title = params[:details][:title]
+        @job.salary = params[:details][:salary]
+        @job.status = params[:details][:status]
+        @job.accepted = params[:details][:accepted]
+
+        redirect_to job_show_path(id:params[:id])
+    end
+
+    def newJob
+        @job = Job.new
+        @job.job_title = params[:job_title]
+        @job.job_description = params[:job_description]
+        @job.salary = 0.00  
+        @job.status = 1
+        @job.accepted = false
+        @job.user_id = current_user.id
+
+        if @job.save!
+            redirect_to params[:job_link], allow_other_host: true
+        else
+            flash.now[:alert] = "Cannot redirect to link"
+        end
     end
 
     def search
@@ -35,6 +70,7 @@ class JobSearchController < ApplicationController
     end
 
     private
+
     def searchLinkedIn (keyword, location, isRemote)
         endpoint = Faraday.new(url:"https://linkedin.romanaugusto.tk/", headers: {'Content-Type' => 'application/json'})
         res = endpoint.post('get-jobs') do |req|
