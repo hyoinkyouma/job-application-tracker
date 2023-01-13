@@ -37,12 +37,11 @@ class JobSearchController < ApplicationController
 
     def update
         @job = Job.find(params[:id])
-        @job.job_title = params[:details][:title]
-        @job.salary = params[:details][:salary]
-        @job.status = params[:details][:status]
-        @job.accepted = params[:details][:accepted]
-
-        redirect_to job_show_path(id:params[:id])
+        if @job.update(job_params)
+            redirect_to root_path
+        else
+            redirect_to edit_job_path(job)
+        end
     end
 
     def newJob
@@ -93,4 +92,9 @@ class JobSearchController < ApplicationController
         puts JSON.parse(res.body).length()
         return JSON.parse(res.body)
     end
+    # Only allow a list of trusted parameters through.
+    def job_params
+        params.require(:job).permit(:title, :salary, :status, :accepted)
+    end
+      
 end
