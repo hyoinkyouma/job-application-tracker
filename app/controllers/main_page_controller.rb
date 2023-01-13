@@ -2,6 +2,8 @@ class MainPageController < ApplicationController
 
     def index
         @jobs = current_user.jobs
+        @events = current_user.events
+
         job_tally = @jobs.size
         job_inprogress = 0
         job_accepted = 0
