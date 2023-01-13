@@ -1,7 +1,7 @@
 <nav class="bg-white border-gray-200 px-2 sm:px-4 py-2.5 dark:bg-gray-900 max-h-[10vh]">
   <div class="container flex flex-wrap items-center justify-between mx-auto">
     <a href="#" class="flex items-center">
-        <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Job Application Tracker</span>
+      <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Job Application Tracker</span>
     </a>
     <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
       <span class="sr-only">Open main menu</span>
@@ -12,16 +12,25 @@
         <li>
           <a href="/" class="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white" aria-current="page">Home</a>
         </li>
-
         <%if user_signed_in? %>
-         <li>
-          <%= button_to "Search Jobs",search_path, class: "block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white", method: :get%>
-        </li>
-         <li>
-          <%= button_to "Sign Out", destroy_user_session_path, class: "block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white", data: {turbo:false}, method: :delete%>
-        </li>
-        <% end %>
-      </ul>
+          <li>
+            <li>
+              <%= button_to "Search Jobs",search_path, class: "block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white", method: :get%>
+            </li>
+            <%if current_user.name? %>
+              <li>
+                <%= link_to current_user.name, edit_user_registration_path, class: "block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white" %>
+              </li>
+            <%else%>
+              <li>
+                <%= link_to current_user.email, edit_user_registration_path, class: "block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white" %>
+              </li>
+            <%end%>
+            <li>
+              <%= button_to "Sign Out", destroy_user_session_path, class: "block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white", data: {turbo:false}, method: :delete%>
+            </li>
+          <% end %>
+        </ul>
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
