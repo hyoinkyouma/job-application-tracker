@@ -2,9 +2,8 @@ require "google/apis/calendar_v3"
 require "google/api_client/client_secrets.rb"
 
 class EventsController < ApplicationController
-    
     def new
-        @event = Event.new
+        @events = Event.new
         @jobs = current_user.jobs
     end
 

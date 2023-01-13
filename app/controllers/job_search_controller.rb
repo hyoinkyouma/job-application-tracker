@@ -59,7 +59,7 @@ class JobSearchController < ApplicationController
         @job.accepted = false
         @job.user_id = current_user.id
 
-        if @job.save!
+        if @job.save! && params[:job_link] != nil
             redirect_to params[:job_link], allow_other_host: true
         else
             flash.now[:alert] = "Cannot redirect to link"
