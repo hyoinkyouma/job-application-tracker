@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   get "/search", to: "job_search#index"
   post "/search", to: "job_search#search"
+  post "/save_job", to: "job_search#newJob", as: "save_job"
   # Defines the root path route ("/")
   root "main_page#index"
   # root "articles#index"
