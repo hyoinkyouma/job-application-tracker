@@ -1,7 +1,7 @@
 <ul class="flex flex-col text-white w-screen">
     <% @result.each do |it| %>
     <%= button_to save_job_path(job_title: it['title'], job_description: it['formattedLocation'], job_link: it['applyMethod'].has_key?('companyApplyUrl') ? it['applyMethod']['companyApplyUrl'] : it['applyMethod']['easyApplyUrl']),
-     class:"w-full block p-6 bg-white border border-gray-200 rounded-lg shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700", method: :post, data: {turbo:false} do %>
+     class:"w-full block p-6 bg-white border border-gray-200 rounded-lg shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700", method: :post, data: {turbo:false}, form: {target:"_blank"} do %>
         <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"><%= it['title'] %></h5>
         <p class="font-normal text-gray-700 dark:text-gray-400"> <%= it['formattedLocation']%></p>
     <% end %>
