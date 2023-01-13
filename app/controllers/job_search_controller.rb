@@ -44,6 +44,12 @@ class JobSearchController < ApplicationController
         end
     end
 
+    def destroy
+        @job = Job.find(params[:id])
+        @job.destroy
+        redirect_to '/'
+    end
+
     def newJob
         @job = Job.new
         @job.job_title = params[:job_title]

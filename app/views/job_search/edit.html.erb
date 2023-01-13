@@ -27,7 +27,8 @@
       <div class="actions flex justify-center mt-7 mb-6">
         <%= link_to "Back", :back, :class => "text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mx-2" %>
         <%= f.submit "Update", :class => "text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-blue-800 mx-2" %>
-      </div>
+      </div> 
     <%end%>
+    <%= button_to 'Delete', job_search_path(@job), method: :delete, data: {confirm: 'Delete chosen searched job PERMANENTLY?', turbo: false}, :class => "text-white bg-red-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-blue-800 mx-2" %>
   </div>
 </div>
