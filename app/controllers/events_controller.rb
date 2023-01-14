@@ -5,6 +5,7 @@ class EventsController < ApplicationController
     before_action :authenticate_user!
     def new
         @event = Event.new
+        @event = Event.new
         @jobs = current_user.jobs
     end
 
