@@ -2,13 +2,34 @@ require "google/apis/calendar_v3"
 require "google/api_client/client_secrets.rb"
 
 class EventsController < ApplicationController
+    before_action :authenticate_user!
     def new
-        @events = Event.new
+        @event = Event.new
         @jobs = current_user.jobs
     end
 
     def show
         @event = Event.find params[:id]
+    end
+
+    def edit
+        @event = Event.find(params[:id])
+        @jobs = current_user.jobs
+    end
+
+    def update
+        @event = Event.find(params[:id])
+        if @event.update(event_params)
+            redirect_to root_path
+        else
+            redirect_to edit_event_path(event)
+        end
+    end
+
+    def destroy
+        @event = Event.find(params[:id])
+        @event.destroy
+        redirect_to '/'
     end
 
     def create
@@ -21,7 +42,7 @@ class EventsController < ApplicationController
         @event.description = params[:event][:description]
 
         google_event = make_event(params[:event], @job)
-        client.insert_event('primary', google_event)
+        # client.insert_event('primary', google_event)
 
         if @event.save!
             redirect_to "/"
@@ -101,4 +122,9 @@ class EventsController < ApplicationController
         end
         client
     end
+        # Only allow a list of trusted parameters through.
+        def event_params
+            params.require(:event).permit(:title, :date_of_event, :description)
+        end
+          
 end
