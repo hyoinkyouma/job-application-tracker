@@ -99,7 +99,6 @@ class JobSearchController < ApplicationController
     end
 
     private
-
     def searchLinkedIn (keyword, location, isRemote)
         endpoint = Faraday.new(url:"https://linkedin.romanaugusto.tk/", headers: {'Content-Type' => 'application/json'})
         res = endpoint.post('get-jobs') do |req|
