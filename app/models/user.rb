@@ -1,6 +1,6 @@
 class User < ApplicationRecord
-   has_many :jobs
-   has_many :events, through: :jobs
+   has_many :jobs, dependent: :delete_all
+   has_many :events, through: :jobs, dependent: :delete_all
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
