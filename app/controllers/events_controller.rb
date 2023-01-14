@@ -43,7 +43,7 @@ class EventsController < ApplicationController
         @event.description = params[:event][:description]
 
         google_event = make_event(params[:event], @job)
-        # client.insert_event('primary', google_event)
+        client.insert_event('primary', google_event)
 
         if @event.save!
             redirect_to "/"
