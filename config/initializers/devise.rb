@@ -295,7 +295,7 @@ Devise.setup do |config|
   # When using OmniAuth, Devise cannot automatically set OmniAuth path,
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
-  config.omniauth :google_oauth2,"825423615307-5vo3oht109511gq4qsoa7iftt5hfoqcj.apps.googleusercontent.com", "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", callback_path: '/users/auth/google_oauth2/callback', access_type: 'offline', prompt: "consent", select_account: true, scope: 'email,profile,calendar'
+  config.omniauth :google_oauth2,ENV['CLIENT_ID'], ENV['CLIENT_SECRET'], callback_path: '/users/auth/google_oauth2/callback', access_type: 'offline', prompt: "consent", select_account: true, scope: 'email,profile,calendar'
 
   # ==> Turbolinks configuration
   # If your app is using Turbolinks, Turbolinks::Controller needs to be included to make redirection work correctly:

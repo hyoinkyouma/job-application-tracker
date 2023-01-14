@@ -3,11 +3,19 @@ require "google/api_client/client_secrets.rb"
 
 class EventsController < ApplicationController
     def new
-        @events = Event.new
+        @event = Event.new
         @jobs = current_user.jobs
     end
 
     def show
+        @event = Event.find params[:id]
+    end
+
+    def edit
+        @event = Event.find params[:id]
+    end
+
+    def update
         @event = Event.find params[:id]
     end
 

@@ -98,6 +98,7 @@ class JobSearchController < ApplicationController
         puts JSON.parse(res.body).length()
         return JSON.parse(res.body)
     end
+    
     # Only allow a list of trusted parameters through.
     def job_params
         params.require(:job).permit(:title, :salary, :status, :accepted)
